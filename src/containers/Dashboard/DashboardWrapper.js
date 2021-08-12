@@ -4,24 +4,48 @@ const DashboardWrapper = styled.div`
     display: flex;
 
     .sidebar{
-        width: 300px;
-        background-color: gray;
-        padding: 20px;
+        flex-shrink: 0;
+        width: 0;
+        overflow: hidden;
+        background-image: linear-gradient(to right top, #051937, #10173a, #1c133b, #280e3a, #330537);
+        transition: 0.3s;
         height: 100vh;
         position: sticky;
         top: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
 
-        ul{
+        &.show{
+            width: 300px;
+            padding: 20px;
+        }
+
+        nav{
             li{
                 a{
-                    display: block;
-                    padding: 10px 20px;
-                    border-radius: 10px;
-                    background-color: white;
-                    margin-bottom: 10px;
+                    .MuiButtonBase-root{
+                        display: block !important;
+                        padding: 10px 20px  !important;
+                        border-radius: 6px  !important;
+                        background-color: rgba(255, 255, 255, 0.3)  !important;
+                        color: white !important;
+                        margin-bottom: 10px  !important;
+                        transition: 0.3s !important;
+                        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3) !important;
+                        min-width: 200px !important;
+                        overflow: hidden !important;
+
+                        &:hover{
+                            background-color: rgba(255, 255, 255, 0.5)  !important;
+                        }
+                    }
+                  
 
                     &.active{
-                        background-color: blue;
+                        .MuiButtonBase-root{
+                            background-color: blue  !important;
+                            color: white  !important;
+                        }
                     }
                 }
             }
@@ -30,7 +54,10 @@ const DashboardWrapper = styled.div`
 
     .rightside{
         flex: 1;
+        /* flex: 1 1 0%; */
+        /* overflow-x: hidden; */
         position: relative;
+
 
         header{
             padding: 20px;

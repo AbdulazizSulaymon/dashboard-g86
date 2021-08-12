@@ -1,3 +1,5 @@
+import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,7 +38,11 @@ const Todos = () => {
                             <TableCell>{v.id}</TableCell>
                             <TableCell>{v.userId}</TableCell>
                             <TableCell>{v.title}</TableCell>
-                            <TableCell>{v.completed}</TableCell>
+                            <TableCell>
+                                {v.completed &&
+                                    <FontAwesomeIcon icon={faCheckCircle} />
+                                    || ""}
+                            </TableCell>
                         </TableRow>
                     )}
                 </TableBody>
